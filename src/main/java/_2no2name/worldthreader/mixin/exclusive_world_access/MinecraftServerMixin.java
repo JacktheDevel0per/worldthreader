@@ -63,7 +63,7 @@ public abstract class MinecraftServerMixin implements MinecraftServerExtended {
                 //Whatever is happening here, it is an offthread access that this mod did not cause.
                 return;
             }
-            //If the thread is accessing its own world, that is fine. Otherwise acquire exclusive access
+            //If the thread is accessing its own world, that is fine. Otherwise, acquire exclusive access
             if (!key.equals(serverWorld.getRegistryKey())) {
                 this.acquireSingleThreadedWorldAccess();
             }

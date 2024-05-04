@@ -1,2 +1,3 @@
 accessWidener v1 named
 accessible class net/minecraft/server/world/ServerChunkManager$MainThreadExecutor
+accessible method net/minecraft/scoreboard/Scoreboard updateScore (Lnet/minecraft/scoreboard/ScoreHolder;Lnet/minecraft/scoreboard/ScoreboardObjective;Lnet/minecraft/scoreboard/ScoreboardScore;)V

@@ -55,7 +55,7 @@ public abstract class MainThreadExecutorMixin extends ThreadExecutor<Runnable> {
                         if (!worldThreadingManager.hasExclusiveWorldAccess()) {
                             if (!this.warned) {
                                 Exception exception = new Exception();
-                                LOGGER.error("Worldthreader: A world thread (" + thread + ") is accessing another thread's (" + this.getThread() + ") world! Worldthreader tries its best to handle this, but this hints at a major mod compatibility issue which may corrupt your world! This warning is only given once per world thread! Please consider reporting this to the Worldthreader issue tracker! Stacktrace: ");
+                                LOGGER.error("Worldthreader: A world thread ({}) is accessing another thread's ({}) world! Worldthreader tries its best to handle this, but this hints at a major mod compatibility issue which may corrupt your world! This warning is only given once per world thread! Please consider reporting this to the Worldthreader issue tracker! Stacktrace: ", thread, this.getThread());
                                 exception.printStackTrace();
                                 this.warned = true;
                             }

@@ -12,12 +12,12 @@ public class ThreadsafeScoreboardObjective extends ScoreboardObjective {
     private final AtomicReference<ScoreboardObjective> delegate = new AtomicReference<>();
 
     public ThreadsafeScoreboardObjective(Scoreboard scoreboard, String name, ScoreboardCriterion criterion, Text displayName, ScoreboardCriterion.RenderType renderType) {
-        super(null, null, null, DUMMY_TEXT, null);
-        this.delegate.set(new ScoreboardObjective(scoreboard, name, criterion, displayName, renderType));
+        super(null, null, null, DUMMY_TEXT, null, false, null);
+        this.delegate.set(new ScoreboardObjective(scoreboard, name, criterion, displayName, renderType, false, this.getNumberFormat()));
     }
 
     public ThreadsafeScoreboardObjective(ScoreboardObjective delegate) {
-        super(null, null, null, DUMMY_TEXT, null);
+        super(null, null, null, DUMMY_TEXT, null, false, null);
         this.delegate.set(delegate);
     }
 

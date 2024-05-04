@@ -33,7 +33,7 @@ public class DimensionChangeHelper {
         destination.getProfiler().swap("reloading");
         Entity entity = entityType.create(destination);
         if (entity != null) {
-            ((EntityExtended) entity).copyFromNBT(entityNBT);
+            ((EntityExtended) entity).worldthreader$copyFromNBT(entityNBT);
             entity.refreshPositionAndAngles(teleportTarget.position.x, teleportTarget.position.y, teleportTarget.position.z, teleportTarget.yaw, entity.getPitch());
             entity.setVelocity(teleportTarget.velocity);
             destination.onDimensionChanged(entity);
@@ -55,7 +55,7 @@ public class DimensionChangeHelper {
 
     public static void restoreEntityInWorld(TeleportedEntityInfo entityInfo) {
         Entity entity = entityInfo.oldEntityObject();
-        ((EntityExtended) entity).restoreEntity(entityInfo);
+        ((EntityExtended) entity).worldthreader$restoreEntity(entityInfo);
         if (!entity.isRemoved()) { //Avoid adding entities that were removed for another reason, e.g. falling sand that landed or mobs that died
             ((ServerWorld) entity.getWorld()).tryLoadEntity(entity);
         }

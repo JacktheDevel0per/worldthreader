@@ -169,13 +169,13 @@ public abstract class EntityMixin implements EntityExtended {
 	}
 
 	@Override
-	public void copyFromNBT(NbtCompound nbtCompound) {
+	public void worldthreader$copyFromNBT(NbtCompound nbtCompound) {
 		this.readNbt(nbtCompound);
 		this.lastNetherPortalPosition = BlockPos.fromLong(nbtCompound.getLong("LastNetherPortalPosition"));
 	}
 
 	@Override
-	public void restoreEntity(TeleportedEntityInfo teleportedEntity) {
+	public void worldthreader$restoreEntity(TeleportedEntityInfo teleportedEntity) {
 		if (this.getRemovalReason() == Entity.RemovalReason.CHANGED_DIMENSION) {
 			this.unsetRemoved();
 		}

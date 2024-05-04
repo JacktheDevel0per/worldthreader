@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class EntityMixin {
 
     @Shadow
-    public World world;
+    private World world;
 
     @Redirect(
             method = "<init>", at = @At(value = "INVOKE", target = "Ljava/util/concurrent/atomic/AtomicInteger;incrementAndGet()I", remap = false)

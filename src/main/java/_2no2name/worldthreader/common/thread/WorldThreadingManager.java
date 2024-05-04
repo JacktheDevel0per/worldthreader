@@ -134,7 +134,7 @@ public class WorldThreadingManager {
 				//Now we have exclusive world access.
 				return;
 			} else {
-				//Use parking instead of spinlocking for performance reasons
+				//Use parking instead of spin-locking for performance reasons
 				LockSupport.park(this);
 			}
 		}

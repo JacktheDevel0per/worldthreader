@@ -8,7 +8,7 @@ public interface EntityExtended {
     default void onArrivedInWorld() {
     }
 
-    void copyFromNBT(NbtCompound nbtCompound);
+    void worldthreader$copyFromNBT(NbtCompound nbtCompound);
 
-    void restoreEntity(TeleportedEntityInfo teleportedEntity);
+    void worldthreader$restoreEntity(TeleportedEntityInfo teleportedEntity);
 }

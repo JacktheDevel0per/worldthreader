@@ -4,7 +4,9 @@ import _2no2name.worldthreader.common.scoreboard.Copyable;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.scoreboard.ScoreboardCriterion;
 import net.minecraft.scoreboard.ScoreboardObjective;
+import net.minecraft.scoreboard.number.NumberFormat;
 import net.minecraft.text.Text;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 
@@ -25,12 +27,16 @@ public abstract class ScoreboardObjectiveMixin implements Cloneable, Copyable<Sc
     @Shadow
     public abstract ScoreboardCriterion.RenderType getRenderType();
 
+    @Shadow private boolean displayAutoUpdate;
+
+    @Shadow @Nullable private NumberFormat numberFormat;
+
     @Override
     public ScoreboardObjective copy() {
         try {
             return (ScoreboardObjective) this.clone();
         } catch (CloneNotSupportedException e) {
-            return new ScoreboardObjective(this.getScoreboard(), this.getName(), this.getCriterion(), this.getDisplayName(), this.getRenderType());
+            return new ScoreboardObjective(this.getScoreboard(), this.getName(), this.getCriterion(), this.getDisplayName(), this.getRenderType(), this.displayAutoUpdate, this.numberFormat);
         }
     }
 }
